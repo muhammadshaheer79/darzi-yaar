@@ -9,38 +9,164 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedHomeRouteImport } from './routes/_authenticated/home'
+import { Route as AuthenticatedClientsIndexRouteImport } from './routes/_authenticated/clients.index'
+import { Route as AuthenticatedJobCardsNewRouteImport } from './routes/_authenticated/job-cards.new'
+import { Route as AuthenticatedJobCardsIdRouteImport } from './routes/_authenticated/job-cards.$id'
+import { Route as AuthenticatedClientsIdRouteImport } from './routes/_authenticated/clients.$id'
+import { Route as AuthenticatedJobCardsIdPrintRouteImport } from './routes/_authenticated/job-cards.$id.print'
 
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHomeRoute = AuthenticatedHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedClientsIndexRoute =
+  AuthenticatedClientsIndexRouteImport.update({
+    id: '/clients/',
+    path: '/clients/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedJobCardsNewRoute =
+  AuthenticatedJobCardsNewRouteImport.update({
+    id: '/job-cards/new',
+    path: '/job-cards/new',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedJobCardsIdRoute = AuthenticatedJobCardsIdRouteImport.update({
+  id: '/job-cards/$id',
+  path: '/job-cards/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedClientsIdRoute = AuthenticatedClientsIdRouteImport.update({
+  id: '/clients/$id',
+  path: '/clients/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedJobCardsIdPrintRoute =
+  AuthenticatedJobCardsIdPrintRouteImport.update({
+    id: '/print',
+    path: '/print',
+    getParentRoute: () => AuthenticatedJobCardsIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/home': typeof AuthenticatedHomeRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/clients/$id': typeof AuthenticatedClientsIdRoute
+  '/job-cards/$id': typeof AuthenticatedJobCardsIdRouteWithChildren
+  '/job-cards/new': typeof AuthenticatedJobCardsNewRoute
+  '/clients/': typeof AuthenticatedClientsIndexRoute
+  '/job-cards/$id/print': typeof AuthenticatedJobCardsIdPrintRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/home': typeof AuthenticatedHomeRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/clients/$id': typeof AuthenticatedClientsIdRoute
+  '/job-cards/$id': typeof AuthenticatedJobCardsIdRouteWithChildren
+  '/job-cards/new': typeof AuthenticatedJobCardsNewRoute
+  '/clients': typeof AuthenticatedClientsIndexRoute
+  '/job-cards/$id/print': typeof AuthenticatedJobCardsIdPrintRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/home': typeof AuthenticatedHomeRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/_authenticated/clients/$id': typeof AuthenticatedClientsIdRoute
+  '/_authenticated/job-cards/$id': typeof AuthenticatedJobCardsIdRouteWithChildren
+  '/_authenticated/job-cards/new': typeof AuthenticatedJobCardsNewRoute
+  '/_authenticated/clients/': typeof AuthenticatedClientsIndexRoute
+  '/_authenticated/job-cards/$id/print': typeof AuthenticatedJobCardsIdPrintRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/home'
+    | '/settings'
+    | '/clients/$id'
+    | '/job-cards/$id'
+    | '/job-cards/new'
+    | '/clients/'
+    | '/job-cards/$id/print'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/home'
+    | '/settings'
+    | '/clients/$id'
+    | '/job-cards/$id'
+    | '/job-cards/new'
+    | '/clients'
+    | '/job-cards/$id/print'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/home'
+    | '/_authenticated/settings'
+    | '/_authenticated/clients/$id'
+    | '/_authenticated/job-cards/$id'
+    | '/_authenticated/job-cards/new'
+    | '/_authenticated/clients/'
+    | '/_authenticated/job-cards/$id/print'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +174,108 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/home': {
+      id: '/_authenticated/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof AuthenticatedHomeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/clients/': {
+      id: '/_authenticated/clients/'
+      path: '/clients'
+      fullPath: '/clients/'
+      preLoaderRoute: typeof AuthenticatedClientsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/job-cards/new': {
+      id: '/_authenticated/job-cards/new'
+      path: '/job-cards/new'
+      fullPath: '/job-cards/new'
+      preLoaderRoute: typeof AuthenticatedJobCardsNewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/job-cards/$id': {
+      id: '/_authenticated/job-cards/$id'
+      path: '/job-cards/$id'
+      fullPath: '/job-cards/$id'
+      preLoaderRoute: typeof AuthenticatedJobCardsIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/clients/$id': {
+      id: '/_authenticated/clients/$id'
+      path: '/clients/$id'
+      fullPath: '/clients/$id'
+      preLoaderRoute: typeof AuthenticatedClientsIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/job-cards/$id/print': {
+      id: '/_authenticated/job-cards/$id/print'
+      path: '/print'
+      fullPath: '/job-cards/$id/print'
+      preLoaderRoute: typeof AuthenticatedJobCardsIdPrintRouteImport
+      parentRoute: typeof AuthenticatedJobCardsIdRoute
+    }
   }
 }
 
+interface AuthenticatedJobCardsIdRouteChildren {
+  AuthenticatedJobCardsIdPrintRoute: typeof AuthenticatedJobCardsIdPrintRoute
+}
+
+const AuthenticatedJobCardsIdRouteChildren: AuthenticatedJobCardsIdRouteChildren =
+  {
+    AuthenticatedJobCardsIdPrintRoute: AuthenticatedJobCardsIdPrintRoute,
+  }
+
+const AuthenticatedJobCardsIdRouteWithChildren =
+  AuthenticatedJobCardsIdRoute._addFileChildren(
+    AuthenticatedJobCardsIdRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedHomeRoute: typeof AuthenticatedHomeRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
+  AuthenticatedClientsIdRoute: typeof AuthenticatedClientsIdRoute
+  AuthenticatedJobCardsIdRoute: typeof AuthenticatedJobCardsIdRouteWithChildren
+  AuthenticatedJobCardsNewRoute: typeof AuthenticatedJobCardsNewRoute
+  AuthenticatedClientsIndexRoute: typeof AuthenticatedClientsIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedHomeRoute: AuthenticatedHomeRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
+  AuthenticatedClientsIdRoute: AuthenticatedClientsIdRoute,
+  AuthenticatedJobCardsIdRoute: AuthenticatedJobCardsIdRouteWithChildren,
+  AuthenticatedJobCardsNewRoute: AuthenticatedJobCardsNewRoute,
+  AuthenticatedClientsIndexRoute: AuthenticatedClientsIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

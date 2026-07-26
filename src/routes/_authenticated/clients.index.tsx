@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Users, Search, ChevronRight, Plus } from "lucide-react";
 import { clientsListQuery } from "@/lib/queries";
 
-export const Route = createFileRoute("/_authenticated/clients")({
+export const Route = createFileRoute("/_authenticated/clients/")({
   head: () => ({
     meta: [
       { title: "Clients — DarziYaar" },
