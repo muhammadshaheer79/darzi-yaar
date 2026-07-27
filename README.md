@@ -169,4 +169,4 @@ _Added 3 or more screenshots below showing the app in action — the auth/dashbo
 | ![Job Card Details & Options](image-3.png) | <img width="979" height="662" alt="Image" src="https://github.com/user-attachments/assets/fc3fa6d6-f8ce-462d-94f4-c9bdda1ab1d3" /> |
 | ![Clients List](image-4.png) | <img width="979" height="465" alt="Image" src="https://github.com/user-attachments/assets/1bee9094-6cf8-4c6d-8bdb-c2436d456235" /> |
 | ![Profile Settings](image-4.png) | <img width="979" height="587" alt="Image" src="https://github.com/user-attachments/assets/40f537ac-ab1d-4792-a159-63bb7fe15066" /> |
-| ![Confirmation Screen/Page](image-4.png) |  |
+| ![Signout Option](image-4.png) | <img width="953" height="392" alt="Image" src="https://github.com/user-attachments/assets/d49b0065-9589-4ceb-a7f3-45a30232d005" /> |
