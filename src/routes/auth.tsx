@@ -23,9 +23,9 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Sign in — DarziYaar" },
-      { name: "description", content: "Sign in to DarziYaar with a one-time email code." },
+      { name: "description", content: "Sign in to DarziYaar with a one-time magic link email." },
       { property: "og:title", content: "Sign in — DarziYaar" },
-      { property: "og:description", content: "Sign in to DarziYaar with a one-time email code." },
+      { property: "og:description", content: "Sign in to DarziYaar with a one-time magic link email." },
     ],
   }),
   component: AuthPage,
@@ -159,7 +159,7 @@ function AuthPage() {
                     <Input id="email" type="email" inputMode="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" autoComplete="email" required />
                   </div>
                   <Button type="submit" className="w-full h-11 text-base" disabled={loading}>
-                    {loading ? "Sending…" : "Send code"}
+                    {loading ? "Sending…" : "Send link"}
                   </Button>
                 </form>
               </>
@@ -201,7 +201,7 @@ function AuthPage() {
             )}
           </Card>
           <p className="text-xs text-muted-foreground text-center mt-6">
-            By continuing you agree to keep client measurements safe. No passwords, no SMS — just a code to your email.
+            By continuing you agree to keep client measurements safe. No passwords, no SMS — just a magic link to your email.
           </p>
         </div>
       </div>
