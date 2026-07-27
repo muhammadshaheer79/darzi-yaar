@@ -163,7 +163,8 @@ _Added 3 or more screenshots below showing the app in action — the auth/dashbo
 | ![Auth Sign In](image.png) | <img width="979" height="822" alt="Image" src="https://github.com/user-attachments/assets/f8279c7d-bcc3-4d46-9929-37d26b242f59" /> |
 | ![Dashboard Home](image-8.png) | <img width="1184" height="401" alt="Image" src="https://github.com/user-attachments/assets/ad9d457f-ab6e-4937-95e9-c1beb6831d8d" /> |
 | ![Create Job Card 1](image-8.png) | <img width="652" height="588" alt="Image" src="https://github.com/user-attachments/assets/7acdf983-fe76-4986-87a4-9af5b18fb909" /> |
-| ![Create Job Card 2](image-3.png) | <img width="779" height="662" alt="Image" src="https://github.com/user-attachments/assets/2b535d1a-6283-484d-bd37-50d597477dda" /> |  |
+| ![Create Job Card 2](image-3.png) | <img width="779" height="662" alt="Image" src="https://github.com/user-attachments/assets/2b535d1a-6283-484d-bd37-50d597477dda" /> |
+| ![Voice Recording](image-3.png) | <img width="979" height="590" alt="Image" src="https://github.com/user-attachments/assets/7634f2a6-1fb9-4df4-b74b-cd857ac56fbb" /> |
 | ![Confirmation Screen/Page](image-4.png) | ![Job Card Details](image-5.png)  |
 | ![Client List](image-10.png) | ![Profile Settings](image-7.png)  |
 | ![Sign Out](image-11.png) |
