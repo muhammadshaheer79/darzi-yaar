@@ -159,7 +159,7 @@ _Added 3 or more screenshots below showing the app in action — the auth/dashbo
 
 |                                                   |                                                 |
 | ------------------------------------------------- | ----------------------------------------------- |
-| ![Auth Sign In](image-1.png)         | ![Auth Sign Up](image.png) |
+| ![Auth Sign Up](image.png) | <img width="979" height="911" alt="Image" src="https://github.com/user-attachments/assets/fdab6276-10e8-4e0d-8aa9-2c70fc98ae54" />         |  |
 | ![Dashboard](image-2.png)         | ![Create Job Card](image-8.png) |
 | ![Create Job Card 2](image-9.png)    | ![Voice Recording](image-3.png) |
 | ![Confirmation Screen/Page](image-4.png) | ![Job Card Details](image-5.png)  |
