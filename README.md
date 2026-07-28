@@ -107,7 +107,53 @@ text outside the JSON object — no preamble, no explanation, no markdown format
 
 ---
 
-## 6. Built With
+## 6. End-to-End Usage Guide
+
+A walkthrough of the app exactly as it works today, in its current MVP scope.
+
+### Step 1 — Sign In
+Enter your email on the sign-in screen. A magic link is sent to that email — click it to be authenticated. No password needed for this flow.
+
+*Note: the app also displays an OTP entry prompt and a create-account screen (collecting email and password). Neither is functionally wired up yet — they exist in the UI as a showcase of where authentication can be extended, and were left unconnected due to build-timeline and Lovable free-tier credit constraints. See [Future Scope](#8-future-scope).*
+
+### Step 2 — Land on the Dashboard
+Once signed in, you land on your personal dashboard. Navigation adapts to screen size:
+- **Desktop:** sidebar menu
+- **Mobile:** bottom navigation bar
+
+### Step 3 — Create a New Job Card
+Tap/click **"+ New Job Card."**
+1. Enter client details manually
+2. For garment measurements, choose either:
+   - **Voice note** — record naturally in English or Roman Urdu (capped at **1 minute 30 seconds**, a limit set to ship a working prototype; extending this is future scope)
+   - **Manual entry** — type the measurements in directly
+
+### Step 4 — Review and Save
+After recording (or typing), the extracted/entered fields are shown for review before saving.
+
+### Step 5 — Manage the Job Card
+Once created, four actions are presented: **Edit, Share on WhatsApp, Print, Delete.**
+- ✅ Edit — works
+- ✅ Share on WhatsApp — works
+- ✅ Delete — works
+- ⏳ Print — UI present, not yet functional (future scope)
+
+### Step 6 — Browse Clients
+From the sidebar (desktop) or bottom nav (mobile), open **Clients**. Here you can search and scroll to find any client, and tap into their job card(s) to view them.
+
+### Step 7 — Settings
+Also accessible from the sidebar/bottom nav. Here you can edit your (the ustaad's) **name, phone number, and email**, then save. This is also where you'll find the **Logout** button.
+
+### What's Not Yet in Scope
+- OTP-based sign-in — UI present, not wired up
+- Email + password account creation — UI present, not used for actual authentication
+- Print functionality — UI present, no output yet
+- Voice notes capped at 1 minute 30 seconds
+- Urdu-language (non-Roman) voice notes not yet reliably handled
+
+---
+
+## 7. Built With
 
 | Layer              | Technology                                                                   |
 | ------------------ | ---------------------------------------------------------------------------- |
@@ -121,7 +167,7 @@ text outside the JSON object — no preamble, no explanation, no markdown format
 
 ---
 
-## 7. Future Scope
+## 8. Future Scope
 
 These are known, intentional gaps for the current version — not oversights, but deliberate scoping decisions to ship a focused, reliable MVP first:
 
@@ -133,7 +179,7 @@ These are known, intentional gaps for the current version — not oversights, bu
 
 ---
 
-## 8. Running the Project Locally
+## 9. Running the Project Locally
 
 You'll need [Node.js](https://nodejs.org) and npm installed (recommended: install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)).
 
@@ -149,11 +195,11 @@ npm i
 npm run dev
 ```
 
-You'll also need to configure a `GEMINI_API_KEY` environment variable (obtained from [Google AI Studio](https://aistudio.google.com)) for the voice-to-text feature to function, along with the relevant Supabase/Lovable Cloud connection variables for auth and the database.
+You'll also need to configure a `GEMINI_API_KEY` environment variable (obtained from [Google AI Studio](https://aistudio.google.com)) for the voice-to-text feature to function, along with the relevant Supabase/Lovable Cloud connection keys/variables for auth and the database.
 
 ---
 
-## 9. Screenshots
+## 10. Screenshots
 
 _Added 3 or more screenshots below showing the app in action — the auth/dashboard/home screen/page, the voice recording screen, the confirmation screen with a flagged field, and a completed job card detail view._
 
