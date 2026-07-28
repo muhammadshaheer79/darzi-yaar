@@ -207,6 +207,7 @@ _Added 3 or more screenshots below showing the app in action — the auth/dashbo
 | ------------------------------------------------- | ----------------------------------------------- |
 | Auth Sign Up | <img width="979" height="911" alt="Image" src="https://github.com/user-attachments/assets/fdab6276-10e8-4e0d-8aa9-2c70fc98ae54" /> | 
 | Auth Sign In | <img width="979" height="822" alt="Image" src="https://github.com/user-attachments/assets/f8279c7d-bcc3-4d46-9929-37d26b242f59" /> |
+| G-mail Auth Magic Link | <img width="1461" height="481" alt="Image" src="https://github.com/user-attachments/assets/3fdd0d33-8b8d-4c2a-8a38-57a1d0adb5c5" /> |
 | Dashboard Home | <img width="1184" height="401" alt="Image" src="https://github.com/user-attachments/assets/ad9d457f-ab6e-4937-95e9-c1beb6831d8d" /> |
 | Create Job Card 1 | <img width="652" height="588" alt="Image" src="https://github.com/user-attachments/assets/7acdf983-fe76-4986-87a4-9af5b18fb909" /> |
 | Create Job Card 2 | <img width="779" height="662" alt="Image" src="https://github.com/user-attachments/assets/2b535d1a-6283-484d-bd37-50d597477dda" /> |
